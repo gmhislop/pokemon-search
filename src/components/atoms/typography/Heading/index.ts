@@ -9,8 +9,6 @@ export const Heading = styled.h1<HeadingProps>`
     font-weight: ${weight};
     text-align: ${align};
     margin: 0;
-    color: black;
-    transition: color 0.2s ease;
 
     ${media.desktop`
       font-size: ${getMaxFontSize(as)}rem;
