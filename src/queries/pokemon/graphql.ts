@@ -14,6 +14,7 @@ export const GET_POKEMONS = gql`
     evolution_chain_id
     pokemon_v2_pokemons (limit: 1) {
       pokemon_v2_pokemonsprites {
+        id
         sprites(path: "front_default")
       }
       pokemon_v2_pokemontypes_aggregate {

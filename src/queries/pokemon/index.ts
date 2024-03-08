@@ -8,7 +8,6 @@ export const getPokemons = async () => {
     const { data } = await client.query({
       query: GET_POKEMONS,
     });
-    console.log(data);
     return data;
   } catch (error) {
     console.error('Error fetching pokemons:', error);

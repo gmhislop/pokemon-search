@@ -9,6 +9,7 @@ export type PokemonType = {
 
 export type Pokemon = {
   pokemon_v2_pokemonsprites: {
+    id: number;
     sprites: string | StaticImport
   }[];
   pokemon_v2_pokemontypes_aggregate: {
