@@ -1,17 +1,18 @@
-"use client"
+"use client";
 
+import * as i from 'types';
 import { useEffect, useState } from 'react';
+import { Loader } from '@/components/atoms';
+import { PokemonDetailCard } from '@/components/molecules';
 import { getPokemonById } from '@/queries/pokemon';
-import { PokemonSpecies } from 'types';
 import { notFound, useParams } from 'next/navigation';
 import { PokemonDetailContainer } from './styled';
-import { Loader } from '@/components/atoms';
 
 const PokemonDetailPage = () => {
     const params = useParams()
 
     const { id } = params;
-    const [pokemonData, setPokemonData] = useState<PokemonSpecies | null>(null);
+    const [pokemonData, setPokemonData] = useState<i.PokemonSpecies | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
@@ -41,7 +42,7 @@ const PokemonDetailPage = () => {
 
     return (
       <PokemonDetailContainer>
-        <h2>{pokemonData?.name}</h2>
+        <PokemonDetailCard pokemonData={pokemonData} />
       </PokemonDetailContainer>
     );
 };

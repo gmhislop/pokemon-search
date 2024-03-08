@@ -40,6 +40,7 @@ export const PokedexTitle = styled(Heading)`
   right: 18%;
   font-size: 1.2vw;
   font-weight: 700;
+  z-index: 2;
   color: var(--color-primary);
 
     ${media.tablet`

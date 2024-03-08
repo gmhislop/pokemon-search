@@ -32,7 +32,7 @@ export const PokemonCardContainer = styled(Column)`
   border-radius: 16px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   background-color: gray;
-  min-height: 400px;
+  min-height: 500px;
   gap: 1rem;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
