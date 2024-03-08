@@ -13,7 +13,7 @@ const PokemonAbout = () => {
     // Simulate a delay for demonstration purposes
     const timeout = setTimeout(() => {
       setIsLoading(false);
-    }, 1000); 
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, []);

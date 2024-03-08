@@ -26,3 +26,14 @@ export const GET_POKEMON_BY_ID = gql`
     }
   }
 `;
+
+export const SEARCH_POKEMON_BY_NAME = gql`
+  query SearchPokemonByName($name: String!) {
+    pokemon_v2_pokemonspecies(
+      where: { name: { _ilike: $name } }
+    ) {
+      id
+      name
+    }
+  }
+`;

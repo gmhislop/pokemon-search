@@ -1,39 +1,46 @@
 "use client";
-
 import * as i from 'types';
 import { useEffect, useState } from 'react';
 import { getPokemons } from '@/queries/pokemons';
 import { PokemonOverviewContainer } from './styled';
 import { Loader } from '@/components/atoms';
 import { PokemonGrid } from '@/components/organisms';
+import { PokemonFilter } from '@/components/molecules';
 
 const PokemonOverview = () => {
-    const [pokemonData, setPokemonData] = useState<i.PokemonSpecies[]>([]);
-    const [loading, setLoading] = useState(true);
+  const [pokemonData, setPokemonData] = useState<i.PokemonSpecies[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [filteredPokemon, setFilteredPokemon] = useState<i.PokemonSpecies[]>([]);
 
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const data = await getPokemons();
-          setPokemonData(data.pokemon_v2_pokemonspecies);
-          setLoading(false);
-        } catch (error) {
-          console.error('Error fetching pokemons:', error);
-          setLoading(false);
-        }
-      };
-      fetchData();
-    }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getPokemons();
+        setPokemonData(data.pokemon_v2_pokemonspecies);
+        setFilteredPokemon(data.pokemon_v2_pokemonspecies);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching pokemons:', error);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
 
-    if (loading) {
-      return <Loader />;
-    }
+  const handleFilter = (filteredPokemon: i.PokemonSpecies[]) => {
+    setFilteredPokemon(filteredPokemon);
+  };
 
-    return (
-      <PokemonOverviewContainer>
-        <PokemonGrid pokemonData={pokemonData} />
-      </PokemonOverviewContainer>
-    );
+  if (loading) {
+    return <Loader />;
+  }
+
+  return (
+    <PokemonOverviewContainer>
+      <PokemonFilter pokemonData={pokemonData} onFilter={handleFilter} />
+      <PokemonGrid pokemonData={filteredPokemon} />
+    </PokemonOverviewContainer>
+  );
 };
 
 export default PokemonOverview;
