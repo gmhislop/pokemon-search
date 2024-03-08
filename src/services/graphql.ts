@@ -1,6 +1,8 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
-export const client = new ApolloClient({
-  uri: 'https://www.swapi.tech/api/graphql',
-  cache: new InMemoryCache()
+const client = new ApolloClient({
+  uri: 'https://beta.pokeapi.co/graphql/v1beta',
+  cache: new InMemoryCache(),
 });
+
+export default client;

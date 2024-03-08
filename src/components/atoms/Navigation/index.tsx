@@ -12,12 +12,12 @@ const SideNavigation = () => {
 
   return (
     <>
-      <NavigationToggle isOpen={isOpen} onClick={toggleNavigation}>
+      <NavigationToggle $isOpen={isOpen} onClick={toggleNavigation}>
         <Bar/>
         <Bar/>
         <Bar/>
       </NavigationToggle>
-      <SideNavigationContainer isOpen={isOpen}>
+      <SideNavigationContainer $isOpen={isOpen}>
         <NavigationList>
           <NavigationItem><NavigationLink href="#">Home</NavigationLink></NavigationItem>
           <NavigationItem><NavigationLink href="#">Characters</NavigationLink></NavigationItem>

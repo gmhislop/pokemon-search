@@ -5,7 +5,7 @@ import { Button } from '..';
 export const SideNavigationContainer = styled.div<NavigationProps>`
   position: fixed;
   top: 0;
-  left: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+  left: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
   width: 100%;
   height: 100%;
   background-color: var(--background-color-secondary);
@@ -33,15 +33,15 @@ export const NavigationToggle = styled.div<NavigationProps>`
   cursor: pointer;
 
   :nth-child(1) {
-    transform: ${({ isOpen }) => (isOpen ? 'rotate(45deg) translate(0.313rem, 0.313rem)' : 'none')};
+    transform: ${({ $isOpen }) => ($isOpen ? 'rotate(45deg) translate(0.313rem, 0.313rem)' : 'none')};
   }
 
   :nth-child(2) {
-    opacity: ${({ isOpen }) => (isOpen ? '0' : '1')};
+    opacity: ${({ $isOpen }) => ($isOpen ? '0' : '1')};
   }
 
   :nth-child(3) {
-    transform: ${({ isOpen }) => (isOpen ? 'rotate(-45deg) translate(0.438rem, -0.438rem)' : 'none')};
+    transform: ${({ $isOpen }) => ($isOpen ? 'rotate(-45deg) translate(0.438rem, -0.438rem)' : 'none')};
   }
 `;
 
@@ -80,6 +80,6 @@ export const NavigationCloseButton = styled.button`
 `;
 
 type NavigationProps = {
-    isOpen: boolean;
+    $isOpen: boolean;
   };
   
