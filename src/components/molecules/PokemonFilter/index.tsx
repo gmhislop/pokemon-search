@@ -1,8 +1,9 @@
+"use client";
 import * as i from 'types';
 import { useState } from 'react';
-import { StyledInput } from './styled';
+import { DeleteButton, InputContainer, StyledInput } from './styled';
 
-export const PokemonFilter= ({ pokemonData, onFilter }: PokemonFilterProps ) => {
+export const PokemonFilter = ({ pokemonData, onFilter }: PokemonFilterProps) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,17 +15,27 @@ export const PokemonFilter= ({ pokemonData, onFilter }: PokemonFilterProps ) => 
         onFilter(filteredPokemon);
     };
 
+    const handleClearSearch = () => {
+        setSearchTerm('');
+        onFilter(pokemonData);
+    };
+
     return (
-        <StyledInput
-            type="text"
-            value={searchTerm}
-            onChange={handleSearch}
-            placeholder="Search by name..."
-        />
+        <InputContainer $isFullWidth $alignItems='center' $justifyContent='center'>
+            <StyledInput
+                type="text"
+                value={searchTerm}
+                onChange={handleSearch}
+                placeholder="Search by name..."
+            />
+            {searchTerm && (
+                <DeleteButton onClick={handleClearSearch}>Clear</DeleteButton>
+            )}
+        </InputContainer>
     );
 };
 
 type PokemonFilterProps = {
     pokemonData: i.PokemonSpecies[];
     onFilter: (filteredPokemon: i.PokemonSpecies[]) => void;
-}
+};

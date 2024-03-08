@@ -1,4 +1,5 @@
 "use client";
+
 import * as i from 'types';
 import { useEffect, useState } from 'react';
 import { getPokemons } from '@/queries/pokemons';
@@ -6,6 +7,7 @@ import { PokemonOverviewContainer } from './styled';
 import { Loader } from '@/components/atoms';
 import { PokemonGrid } from '@/components/organisms';
 import { PokemonFilter } from '@/components/molecules';
+import NotFoundPage from '@/components/molecules/Notfound';
 
 const PokemonOverview = () => {
   const [pokemonData, setPokemonData] = useState<i.PokemonSpecies[]>([]);
@@ -38,7 +40,11 @@ const PokemonOverview = () => {
   return (
     <PokemonOverviewContainer>
       <PokemonFilter pokemonData={pokemonData} onFilter={handleFilter} />
-      <PokemonGrid pokemonData={filteredPokemon} />
+      {filteredPokemon.length > 0 ? (
+        <PokemonGrid pokemonData={filteredPokemon} />
+      ) : (
+        <NotFoundPage />
+      )}
     </PokemonOverviewContainer>
   );
 };
