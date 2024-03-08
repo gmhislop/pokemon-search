@@ -52,7 +52,6 @@ export const PokedexTitle = styled(Heading)`
 
 export const PokedexWrapper = styled.div`
     position: relative;
-    border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
