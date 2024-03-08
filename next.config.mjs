@@ -13,6 +13,15 @@ const nextConfig = {
     compiler: {
         styledComponents: true,
     },
+    redirects: async () => {
+        return [
+            {
+                source: '/',
+                destination: '/pokemon',
+                permanent: true,
+            },
+        ];
+    }
 };
 
 export default nextConfig;

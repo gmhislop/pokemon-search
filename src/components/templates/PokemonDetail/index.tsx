@@ -1,13 +1,18 @@
+"use client"
+
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import { getPokemonById } from '@/queries/pokemon';
 import { PokemonSpecies } from 'types';
-import { notFound } from 'next/navigation';
+import { notFound, useParams } from 'next/navigation';
+import { PokemonDetailContainer } from './styled';
+import { Loader } from '@/components/atoms';
 
 const PokemonDetailPage = () => {
-    const router = useRouter();
-    const { id } = router.query;
+    const params = useParams()
+
+    const { id } = params;
     const [pokemonData, setPokemonData] = useState<PokemonSpecies | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
       const fetchPokemonData = async () => {
@@ -16,6 +21,7 @@ const PokemonDetailPage = () => {
             const pokemonId = parseInt(id as string);
             const pokemon = await getPokemonById(pokemonId);
             setPokemonData(pokemon);
+            setLoading(false);
           }
         } catch (error) {
           console.error('Error fetching pokemon:', error);
@@ -25,14 +31,18 @@ const PokemonDetailPage = () => {
       fetchPokemonData();
     }, [id]);
 
-    if (!pokemonData) {
+    if (loading) {
+      return <Loader />;
+    }
+    
+    if (!pokemonData && !loading) {
       return notFound();
     }
 
     return (
-      <div>
-        <h2>{pokemonData.name}</h2>
-      </div>
+      <PokemonDetailContainer>
+        <h2>{pokemonData?.name}</h2>
+      </PokemonDetailContainer>
     );
 };
 

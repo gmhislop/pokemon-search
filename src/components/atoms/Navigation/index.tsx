@@ -27,7 +27,7 @@ const SideNavigation = () => {
       </Column>
       <SideNavigationWrapper $isOpen={isOpen}>
         <NavigationList>
-          <NavigationItem><NavigationLink href="/">Home</NavigationLink></NavigationItem>
+          <NavigationItem><NavigationLink href="/pokemon">Home</NavigationLink></NavigationItem>
           <NavigationItem><NavigationLink href="/about">About</NavigationLink></NavigationItem>
         </NavigationList>
         <PokeballImage src={'/images/pokeball.png'} alt={'pokeball'} width={80} height={80} loading='lazy' />
