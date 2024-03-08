@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { getPokemonById } from '@/queries/pokemon';
 import { PokemonSpecies } from 'types';
+import { notFound } from 'next/navigation';
 
 const PokemonDetailPage = () => {
     const router = useRouter();
@@ -25,7 +26,7 @@ const PokemonDetailPage = () => {
     }, [id]);
 
     if (!pokemonData) {
-      return <div>Loading...</div>;
+      return notFound();
     }
 
     return (

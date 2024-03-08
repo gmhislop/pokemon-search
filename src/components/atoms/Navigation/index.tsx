@@ -22,7 +22,7 @@ const SideNavigation = () => {
       </NavigationToggle>
       <Column $isFullWidth $alignItems='center' $justifyContent='center'>
       <HomeButton href="/">
-      <Image src={Logo} alt="Pokemon" width={150} height={50} />
+      <Image src={Logo} alt="Pokemon" width={150} height={50} loading='lazy' />
       </HomeButton>
       </Column>
       <SideNavigationWrapper $isOpen={isOpen}>
@@ -30,7 +30,7 @@ const SideNavigation = () => {
           <NavigationItem><NavigationLink href="/">Home</NavigationLink></NavigationItem>
           <NavigationItem><NavigationLink href="/about">About</NavigationLink></NavigationItem>
         </NavigationList>
-        <PokeballImage src={'/images/pokeball.png'} alt={'pokeball'} width={80} height={80} />
+        <PokeballImage src={'/images/pokeball.png'} alt={'pokeball'} width={80} height={80} loading='lazy' />
       </SideNavigationWrapper>
       {isOpen && <Overlay onClick={toggleNavigation}/>}
     </SideNavigationContainer>

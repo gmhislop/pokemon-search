@@ -9,7 +9,7 @@ const PokemonCard = ({ title, image, types, id }:PokemonCardProps) => {
     <PokemonLink href={`/pokemon/${id}`}>
     <PokemonCardContainer>
       <PokemonCardTitle as='h2'>{title.toUpperCase()}</PokemonCardTitle>
-      <PokemonCardImage src={image} alt={title} width={200} height={200} />
+      <PokemonCardImage src={image} alt={title} width={200} height={200} loading='lazy' />
       <Row $alignItems='left' $justifyContent='center' $gap={1}>
         <PokemonCardId>#{id}</PokemonCardId>
       </Row>
@@ -20,7 +20,7 @@ const PokemonCard = ({ title, image, types, id }:PokemonCardProps) => {
           </Column>
         ))}
       </PokemonCardInfo>
-      <PokeBallImage src={'/images/pokeball.png'} alt={'pokeball'} width={100} height={100} />
+      <PokeBallImage src={'/images/pokeball.png'} alt={'pokeball'} width={120} height={120} loading='lazy' />
     </PokemonCardContainer>
     </PokemonLink>
   );
