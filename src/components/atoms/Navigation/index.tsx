@@ -1,7 +1,10 @@
 "use client";
 
 import React from 'react';
-import { Bar, NavigationItem, NavigationLink, NavigationList, NavigationToggle, SideNavigationContainer, SideNavigationWrapper } from './styled';
+import { Bar, HomeButton, NavigationItem, NavigationLink, NavigationList, NavigationToggle, SideNavigationContainer, SideNavigationWrapper } from './styled';
+import Image from 'next/image';
+import { Column } from '../Column';
+import Logo from 'vectors/logo.svg';
 
 const SideNavigation = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -17,6 +20,11 @@ const SideNavigation = () => {
         <Bar/>
         <Bar/>
       </NavigationToggle>
+      <Column $isFullWidth $alignItems='center' $justifyContent='center'>
+      <HomeButton href="/">
+      <Image src={Logo} alt="Pokemon" width={150} height={50} />
+      </HomeButton>
+      </Column>
       <SideNavigationWrapper $isOpen={isOpen}>
         <NavigationList>
           <NavigationItem><NavigationLink href="#">Home</NavigationLink></NavigationItem>

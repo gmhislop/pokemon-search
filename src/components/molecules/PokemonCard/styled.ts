@@ -2,16 +2,21 @@ import styled from "styled-components";
 import Image from "next/image";
 import { Column } from "@/components/atoms/Column";
 import { Heading, Paragraph } from "@/components/atoms";
+import Link from "next/link";
+
+export const PokemonLink = styled(Link)`
+  text-decoration: none;
+`;
 
 export const PokemonCardContainer = styled(Column)`
   padding: 1rem;
-  margin: 1rem 0;
   align-items: center;
   border: 6px solid #f9e363;
   border-radius: 16px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   background-color: gray;
-  height: 400px;
+  min-height: 400px;
+  gap: 1rem;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
 
@@ -22,13 +27,17 @@ export const PokemonCardContainer = styled(Column)`
 
 export const PokemonCardTitle = styled(Heading)`
   text-align: center;
-  margin-bottom: 1rem;
   color: white;
+`;
+
+export const PokemonCardId = styled(Paragraph)`
+  width: 100%;
+  text-transform: capitalize;
 `;
 
 export const PokemonCardType = styled(Paragraph)`
   padding: 0.5rem 1rem;
-  border-radius: 5px;
+  border-radius: 4px;
   border: 1px solid #f9e363;
   width: 100%;
   text-transform: capitalize;
@@ -48,5 +57,4 @@ export const PokemonCardInfo = styled(Column)`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-top: 1rem;
 `;

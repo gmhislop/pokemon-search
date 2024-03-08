@@ -1,10 +1,11 @@
 "use client";
 
-import * as i from 'types';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import PokemonGrid from '@/components/organisms/PokemonGrid';
 import { getPokemons } from '@/queries/pokemon';
-import { PokemonOverviewContainer } from './styled';
+import * as i from 'types';
+import { PokemonDetailContainer} from './styled';
 
 const PokemonOverview = () => {
     const [pokemonData, setPokemonData] = useState<i.PokemonSpecies[]>([]);
@@ -22,9 +23,9 @@ const PokemonOverview = () => {
     }, []);
 
   return (
-    <PokemonOverviewContainer>
+    <PokemonDetailContainer>
       <PokemonGrid pokemonData={pokemonData} />
-    </PokemonOverviewContainer>
+    </PokemonDetailContainer>
   );
 };
 

@@ -1,19 +1,17 @@
-import { Column } from '@/components/atoms/Column';
 import React from 'react';
-import { PokemonCardContainer, PokemonCardImage, PokemonCardInfo, PokemonCardTitle, PokemonCardType } from './styled';
-import { TypeBadge } from '@/components/atoms/TypeBadge/styled'; // Make sure this import path is correct
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import { Column } from '@/components/atoms/Column';
 import { Row } from '@/components/atoms/Row';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import { PokemonCardContainer, PokemonCardId, PokemonCardImage, PokemonCardInfo, PokemonCardTitle, PokemonCardType, PokemonLink } from './styled';
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ title, image, types }) => {
+const PokemonCard = ({ title, image, types, id }:PokemonCardProps) => {
   return (
+    <PokemonLink href={`/pokemon/${id}`}>
     <PokemonCardContainer>
       <PokemonCardTitle as='h2'>{title.toUpperCase()}</PokemonCardTitle>
       <PokemonCardImage src={image} alt={title} width={200} height={200} />
-      <Row $alignItems='center' $justifyContent='center' $gap={1}>
-      {types.map((type, index) => (
-        <TypeBadge key={index} color={type} />
-      ))}
+      <Row $alignItems='left' $justifyContent='center' $gap={1}>
+        <PokemonCardId>#{id}</PokemonCardId>
       </Row>
       <PokemonCardInfo>
         {types.map((type, index) => (
@@ -23,10 +21,12 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ title, image, types }) => {
         ))}
       </PokemonCardInfo>
     </PokemonCardContainer>
+    </PokemonLink>
   );
 };
 
 type PokemonCardProps = {
+  id: number;
   title: string;
   image: string | StaticImport;
   types: string[];

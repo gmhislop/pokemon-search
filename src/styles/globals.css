@@ -1,8 +1,10 @@
 :root {
   --background-color: #4360b8;
-  --background-color-secondary: #000000;
+  --background-color-secondary: #fc0000;
+  --background-color-tertiary: #d2d2d2;
   --text-color: #FFFFFF;
   --link-color: #FFCB05;
+  --link-color-secondary: #383838;
   --link-hover-color: #F5D780;
   --button-filled-background: #FFCB05;
   --button-filled-text: #000000;
@@ -29,7 +31,7 @@ body {
 }
 
 a {
-  color: var(--link-color);
+  color: var(--link-color-secondary);
   text-decoration: none;
 }
 

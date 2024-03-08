@@ -3,8 +3,13 @@ import styled from 'styled-components';
 import { Button } from '..';
 
 export const SideNavigationContainer = styled.div`
+  display: flex;
   position: fixed;
+  justify-content: space-between;
+  width: 100%;
   z-index: 2;
+  background-color: var(--background-color);
+  opacity: 0.95;
 `;
 
 export const SideNavigationWrapper = styled.div<NavigationProps>`
@@ -13,14 +18,23 @@ export const SideNavigationWrapper = styled.div<NavigationProps>`
   left: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
   width: 100%;
   height: 100%;
-  background-color: var(--background-color);
+  background-color: var(--background-color-secondary);
   border: 4px solid var(--link-color);
   transition: left 0.3s ease-in-out;
 
   ${media.tablet`
-    width: 250px;
+    width: 400px;
+    height: 500px;
     border-radius: 0 10px 10px 0;
   `}
+`;
+
+export const HomeButton = styled(Button)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
 `;
 
 export const Overlay = styled.div`
@@ -36,7 +50,7 @@ export const Overlay = styled.div`
 export const Bar = styled.div`
   width: 25px;
   height: 3px;
-  background-color: var(--link-color);
+  background-color: var(--background-color-tertiary);
   margin: 5px 0;
   transition: transform 0.3s ease-in-out;
 `;
@@ -63,11 +77,14 @@ export const NavigationToggle = styled.div<NavigationProps>`
 
 export const NavigationList = styled.ul`
   list-style: none;
-  gap: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
+  margin: 4rem 0.5rem;
+  background-color: var(--background-color-tertiary);
+  border-radius: 10px;
+  border: 4px solid transparent;
 `;
 
 export const NavigationItem = styled.li`
@@ -75,24 +92,13 @@ export const NavigationItem = styled.li`
 `;
 
 export const NavigationLink = styled(Button)`
-  color: var(--link-color);
+  color: red;
   text-decoration: none;
-  font-size: 1.125rem;
-
+  font-size: 2rem;
+  
   &:hover {
     color: var(--link-hover-color);
   }
-`;
-
-export const NavigationCloseButton = styled.button`
-    position: absolute;
-    top: 1.25rem;
-    right: 1.25rem;
-    background-color: blue;
-    border: none;
-    color: #fff;
-    font-size: 1.25rem;
- cursor: pointer;
 `;
 
 type NavigationProps = {

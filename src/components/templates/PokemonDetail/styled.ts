@@ -1,7 +1,7 @@
 import { Column } from "@/components/atoms/Column";
 import styled from "styled-components";
 
-export const PokemonOverviewContainer = styled(Column)`
+export const PokemonDetailContainer = styled(Column)`
   gap: 20px;
   align-items: center;
   padding: 20px;
