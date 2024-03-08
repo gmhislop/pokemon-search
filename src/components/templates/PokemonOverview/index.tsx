@@ -3,7 +3,7 @@
 import * as i from 'types';
 import { useEffect, useState } from 'react';
 import PokemonGrid from '@/components/organisms/PokemonGrid';
-import { getPokemons } from '@/queries/pokemon';
+import { getPokemons } from '@/queries/pokemons';
 import { PokemonOverviewContainer } from './styled';
 
 const PokemonOverview = () => {

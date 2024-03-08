@@ -1,32 +1,38 @@
-"use client";
-
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import PokemonGrid from '@/components/organisms/PokemonGrid';
-import { getPokemons } from '@/queries/pokemon';
-import * as i from 'types';
-import { PokemonDetailContainer} from './styled';
+import { useRouter } from 'next/router';
+import { getPokemonById } from '@/queries/pokemon';
+import { PokemonSpecies } from 'types';
 
-const PokemonOverview = () => {
-    const [pokemonData, setPokemonData] = useState<i.PokemonSpecies[]>([]);
+const PokemonDetailPage = () => {
+    const router = useRouter();
+    const { id } = router.query;
+    const [pokemonData, setPokemonData] = useState<PokemonSpecies | null>(null);
 
     useEffect(() => {
-      const fetchData = async () => {
+      const fetchPokemonData = async () => {
         try {
-          const data = await getPokemons();
-          setPokemonData(data.pokemon_v2_pokemonspecies);
+          if (id) {
+            const pokemonId = parseInt(id as string);
+            const pokemon = await getPokemonById(pokemonId);
+            setPokemonData(pokemon);
+          }
         } catch (error) {
-          console.error('Error fetching pokemons:', error);
+          console.error('Error fetching pokemon:', error);
         }
       };
-      fetchData();
-    }, []);
 
-  return (
-    <PokemonDetailContainer>
-      <PokemonGrid pokemonData={pokemonData} />
-    </PokemonDetailContainer>
-  );
+      fetchPokemonData();
+    }, [id]);
+
+    if (!pokemonData) {
+      return <div>Loading...</div>;
+    }
+
+    return (
+      <div>
+        <h2>{pokemonData.name}</h2>
+      </div>
+    );
 };
 
-export default PokemonOverview;
+export default PokemonDetailPage;

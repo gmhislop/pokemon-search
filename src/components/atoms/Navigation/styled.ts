@@ -21,10 +21,11 @@ export const SideNavigationWrapper = styled.div<NavigationProps>`
   background-color: var(--background-color-secondary);
   border: 4px solid var(--link-color);
   transition: left 0.3s ease-in-out;
+  z-index: 2;
 
   ${media.tablet`
-    width: 400px;
-    height: 500px;
+    width: 25rem;
+    height: 31.25rem;
     border-radius: 0 10px 10px 0;
   `}
 `;
@@ -44,14 +45,15 @@ export const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 100;
+  transition: background-color 0.3s ease-in-out;
+  z-index: 1;
 `;
 
 export const Bar = styled.div`
-  width: 25px;
-  height: 3px;
+  width: 1.563rem;
+  height: 0.188rem;
   background-color: var(--background-color-tertiary);
-  margin: 5px 0;
+  margin: 0.313rem 0;
   transition: transform 0.3s ease-in-out;
 `;
 
@@ -81,10 +83,10 @@ export const NavigationList = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 4rem 0.5rem;
+  margin: 2.5rem 0.313rem;
   background-color: var(--background-color-tertiary);
-  border-radius: 10px;
-  border: 4px solid transparent;
+  border-radius: 1.25rem;
+  border: 0.25rem solid transparent;
 `;
 
 export const NavigationItem = styled.li`
@@ -103,5 +105,4 @@ export const NavigationLink = styled(Button)`
 
 type NavigationProps = {
     $isOpen: boolean;
-  };
-  
+};
