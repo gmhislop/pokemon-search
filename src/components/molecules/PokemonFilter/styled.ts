@@ -25,12 +25,4 @@ export const InputContainer = styled(Column)`
 export const DeleteButton = styled(Button)`
   position: absolute;
   margin: 2rem 0;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: #333;
-  font-size: 14px;
-  &:hover {
-    color: #ff0000;
- }
 `;

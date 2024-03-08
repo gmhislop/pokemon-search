@@ -29,7 +29,7 @@ export const PokemonFilter = ({ pokemonData, onFilter }: PokemonFilterProps) => 
                 placeholder="Search by name..."
             />
             {searchTerm && (
-                <DeleteButton onClick={handleClearSearch}>Clear</DeleteButton>
+                <DeleteButton $variant='outline' onClick={handleClearSearch}>Clear</DeleteButton>
             )}
         </InputContainer>
     );
