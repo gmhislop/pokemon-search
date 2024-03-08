@@ -1,6 +1,7 @@
 import { media } from '@/styles/utils';
 import styled from 'styled-components';
 import { Button } from '..';
+import Image from 'next/image';
 
 export const SideNavigationContainer = styled.div`
   display: flex;
@@ -36,6 +37,17 @@ export const HomeButton = styled(Button)`
   align-items: center;
   cursor: pointer;
   text-decoration: none;
+`;
+
+export const PokeballImage = styled(Image)`
+  position: absolute;
+  bottom: 12rem;
+  right: 50%;
+  margin-top: 6.25rem;
+  transform: translate(50%, 50%);
+  z-index: 2;
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out;
 `;
 
 export const Overlay = styled.div`
@@ -83,7 +95,7 @@ export const NavigationList = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2.5rem 0.313rem;
+  margin: 5rem 0.313rem;
   background-color: var(--background-color-tertiary);
   border-radius: 1.25rem;
   border: 0.25rem solid transparent;
@@ -93,13 +105,29 @@ export const NavigationItem = styled.li`
   padding: 0.625rem 1.25rem;
 `;
 
-export const NavigationLink = styled(Button)`
+export const NavigationLink = styled.a`
+  position: relative;
+  display: inline-block;
   color: red;
   text-decoration: none;
   font-size: 2rem;
-  
+
   &:hover {
     color: var(--link-hover-color);
+  }
+
+  &:active {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 60%;
+      right: -5rem;
+      transform: translateY(-50%);
+      width: 2rem;
+      height: 2rem;
+      background-image: url('/images/pokeball.png');
+      background-size: cover;
+    }
   }
 `;
 

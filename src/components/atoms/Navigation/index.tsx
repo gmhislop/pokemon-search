@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Bar, HomeButton, NavigationItem, NavigationLink, NavigationList, NavigationToggle, Overlay, SideNavigationContainer, SideNavigationWrapper } from './styled';
+import { Bar, HomeButton, NavigationItem, NavigationLink, NavigationList, NavigationToggle, Overlay, PokeballImage, SideNavigationContainer, SideNavigationWrapper } from './styled';
 import Image from 'next/image';
 import { Column } from '../Column';
 import Logo from 'vectors/logo.svg';
@@ -30,6 +30,7 @@ const SideNavigation = () => {
           <NavigationItem><NavigationLink href="/">Home</NavigationLink></NavigationItem>
           <NavigationItem><NavigationLink href="/about">About</NavigationLink></NavigationItem>
         </NavigationList>
+        <PokeballImage src={'/images/pokeball.png'} alt={'pokeball'} width={80} height={80} />
       </SideNavigationWrapper>
       {isOpen && <Overlay onClick={toggleNavigation}/>}
     </SideNavigationContainer>

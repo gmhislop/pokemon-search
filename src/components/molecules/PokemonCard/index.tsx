@@ -2,7 +2,7 @@ import React from 'react';
 import { Column } from '@/components/atoms/Column';
 import { Row } from '@/components/atoms/Row';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
-import { PokemonCardContainer, PokemonCardId, PokemonCardImage, PokemonCardInfo, PokemonCardTitle, PokemonCardType, PokemonLink } from './styled';
+import { PokeBallImage, PokemonCardContainer, PokemonCardId, PokemonCardImage, PokemonCardInfo, PokemonCardTitle, PokemonCardType, PokemonLink } from './styled';
 
 const PokemonCard = ({ title, image, types, id }:PokemonCardProps) => {
   return (
@@ -20,6 +20,7 @@ const PokemonCard = ({ title, image, types, id }:PokemonCardProps) => {
           </Column>
         ))}
       </PokemonCardInfo>
+      <PokeBallImage src={'/images/pokeball.png'} alt={'pokeball'} width={100} height={100} />
     </PokemonCardContainer>
     </PokemonLink>
   );

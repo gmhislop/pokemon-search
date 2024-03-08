@@ -4,8 +4,25 @@ import { Column } from "@/components/atoms/Column";
 import { Heading, Paragraph } from "@/components/atoms";
 import Link from "next/link";
 
+export const PokeBallImage = styled(Image)`
+  position: absolute;
+  display: none;
+  top: 6rem;
+  opacity: 0.8;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+`;
+
 export const PokemonLink = styled(Link)`
   text-decoration: none;
+
+  &:hover {
+    ${PokeBallImage} {
+      transform: scale(1.05);
+      display: flex;
+    }
+  }
 `;
 
 export const PokemonCardContainer = styled(Column)`

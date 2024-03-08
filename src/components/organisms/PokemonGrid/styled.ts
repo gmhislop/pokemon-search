@@ -4,8 +4,8 @@ import styled from 'styled-components';
 export const PokemonGridContainer = styled.div`
   display: grid;
   width: 100%;
-  gap: 20px;
-  margin-top: 48px;
+  gap: 1.25rem;
+  margin-top: 3rem;
   grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
 
   ${media.desktop`
