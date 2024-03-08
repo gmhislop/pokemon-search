@@ -2,13 +2,19 @@ import { media } from '@/styles/utils';
 import styled from 'styled-components';
 import { Button } from '..';
 
-export const SideNavigationContainer = styled.div<NavigationProps>`
+export const SideNavigationContainer = styled.div`
+  position: fixed;
+  z-index: 2;
+`;
+
+export const SideNavigationWrapper = styled.div<NavigationProps>`
   position: fixed;
   top: 0;
   left: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
   width: 100%;
   height: 100%;
-  background-color: var(--background-color-secondary);
+  background-color: var(--background-color);
+  border: 4px solid var(--link-color);
   transition: left 0.3s ease-in-out;
 
   ${media.tablet`
@@ -17,10 +23,20 @@ export const SideNavigationContainer = styled.div<NavigationProps>`
   `}
 `;
 
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+`;
+
 export const Bar = styled.div`
   width: 25px;
   height: 3px;
-  background-color: #fff;
+  background-color: var(--link-color);
   margin: 5px 0;
   transition: transform 0.3s ease-in-out;
 `;

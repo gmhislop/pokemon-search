@@ -1,16 +1,16 @@
 :root {
-  --background-color: #000;
-  --background-color-secondary: #1C1C1C;
+  --background-color: #4360b8;
+  --background-color-secondary: #000000;
   --text-color: #FFFFFF;
-  --link-color: #FFD700;
-  --link-hover-color: #C3A500;
-  --button-filled-background: #FFD700;
-  --button-filled-text: #000;
-  --button-filled-border: #FFD700;
+  --link-color: #FFCB05;
+  --link-hover-color: #F5D780;
+  --button-filled-background: #FFCB05;
+  --button-filled-text: #000000;
+  --button-filled-border: #FFCB05;
   --button-outline-border: #FFFFFF;
   --button-outline-text: #FFFFFF;
-  --button-hover-filled-background: #C3A500;
-  --button-hover-outline-text: #C3A500;
+  --button-hover-filled-background: #F5D780; 
+  --button-hover-outline-text: #F5D780; 
 }
 
 * {
