@@ -27,7 +27,7 @@ export const SideNavigationWrapper = styled.div<NavigationProps>`
   ${media.tablet`
     width: 25rem;
     height: 31.25rem;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 20px 20px 0;
   `}
 `;
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Column } from '@/components/atoms/Column';
-import { Row } from '@/components/atoms/Row';
+
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { PokeBallImage, PokemonCardContainer, PokemonCardId, PokemonCardImage, PokemonCardInfo, PokemonCardTitle, PokemonCardType, PokemonLink } from './styled';
+import { Row, Column } from '@/components/atoms';
 
-const PokemonCard = ({ title, image, types, id }:PokemonCardProps) => {
+export const PokemonCard = ({ title, image, types, id }:PokemonCardProps) => {
   return (
     <PokemonLink href={`/pokemon/${id}`}>
     <PokemonCardContainer>
@@ -32,5 +32,3 @@ type PokemonCardProps = {
   image: string | StaticImport;
   types: string[];
 };
-
-export default PokemonCard;

@@ -2,14 +2,14 @@
 
 import * as i from 'types';
 import { useEffect, useState } from 'react';
-import PokemonGrid from '@/components/organisms/PokemonGrid';
 import { getPokemons } from '@/queries/pokemons';
-import { PokemonOverviewContainer } from './styled'; // Import Loader component
-import Loader from '@/components/atoms/Loader';
+import { PokemonOverviewContainer } from './styled';
+import { Loader } from '@/components/atoms';
+import { PokemonGrid } from '@/components/organisms';
 
 const PokemonOverview = () => {
     const [pokemonData, setPokemonData] = useState<i.PokemonSpecies[]>([]);
-    const [loading, setLoading] = useState(true); // State to manage loading status
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       const fetchData = async () => {

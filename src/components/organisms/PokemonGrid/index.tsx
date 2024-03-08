@@ -1,10 +1,9 @@
 import React from 'react';
 import { PokemonGridContainer } from './styled';
 import * as i from 'types';
-import PokemonCard from '@/components/molecules/PokemonCard';
+import { PokemonCard } from '@/components/molecules';
 
-const PokemonGrid = ({ pokemonData }: { pokemonData: i.PokemonSpecies[] }) => {
-  console.log(pokemonData);
+export const PokemonGrid = ({ pokemonData }: { pokemonData: i.PokemonSpecies[] }) => {
   return (
     <PokemonGridContainer>
       {pokemonData.map((pokemon) => (
@@ -19,5 +18,3 @@ const PokemonGrid = ({ pokemonData }: { pokemonData: i.PokemonSpecies[] }) => {
     </PokemonGridContainer>
   );
 };
-
-export default PokemonGrid;
