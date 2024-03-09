@@ -1,10 +1,8 @@
 "use client";
 
-import * as React from "react";
+import { Button, Paragraph } from "@/components/atoms";
 import Image from "next/image";
 import { PokemonAboutContainer, PokemonAboutWrapper } from "./styled";
-import { Button, Paragraph } from "@/components/atoms";
-import Loader from '@/components/atoms/Loader';
 
 const PokemonAbout = () => {
   return (

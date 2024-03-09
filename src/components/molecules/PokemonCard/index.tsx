@@ -14,7 +14,7 @@ export const PokemonCard = ({ title, image, types, id }: PokemonCardProps) => {
           <PokemonCardTitle as='h2'>{title}</PokemonCardTitle>
           <TypeBadge color={getTypeColor(types[0])} />
         </Row>
-        <PokemonCardImage src={image} alt={title} width={200} height={200} loading='lazy' />
+        <PokemonCardImage src={image} alt={title} width={200} height={200} quality={30} loading='lazy' />
         <PokemonCardId>#{id}</PokemonCardId>
         <PokemonCardInfo>
           {types.map((type, index) => (

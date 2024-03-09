@@ -106,6 +106,14 @@ export const NavigationList = styled.ul`
 `;
 
 export const NavigationItem = styled.li`
+`;
+
+export const NavigationLink = styled.a`
+  position: relative;
+  display: inline-block;
+  color: red;
+  width: 100%;
+  text-decoration: none;
   padding: 0.625rem 1.25rem;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 1.25rem;
@@ -120,25 +128,14 @@ export const NavigationItem = styled.li`
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
     border: 0.5px solid var(--link-color);
   }
-`;
-
-export const NavigationLink = styled.a`
-  position: relative;
-  display: inline-block;
-  color: red;
-  text-decoration: none;
   font-size: 2rem;
 
   &:hover {
-    color: var(--link-hover-color);
-  }
-
-  &:active {
     &:after {
       content: '';
       position: absolute;
-      top: 60%;
-      right: -5rem;
+      top: 50%;
+      right: 1rem;
       transform: translateY(-50%);
       width: 2rem;
       height: 2rem;
