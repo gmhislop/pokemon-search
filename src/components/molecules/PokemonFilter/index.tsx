@@ -1,8 +1,8 @@
 "use client";
-import * as i from 'types';
-import { useState } from 'react';
-import { DeleteButton, InputContainer, StyledInput } from './styled';
 import { Button } from '@/components/atoms';
+import { useState } from 'react';
+import * as i from 'types';
+import { InputContainer, StyledInput } from './styled';
 
 export const PokemonFilter = ({ pokemonData, onFilter }: PokemonFilterProps) => {
     const [searchTerm, setSearchTerm] = useState('');
