@@ -1,6 +1,6 @@
 import { media } from '@/styles/utils';
 import styled from 'styled-components';
-import { Button, Paragraph } from '..';
+import { Button, Paragraph, spin } from '..';
 import Image from 'next/image';
 import { StyledButton } from '../Button/styled';
 
@@ -11,7 +11,6 @@ export const SideNavigationContainer = styled.div`
   width: 100%;
   z-index: 2;
   background-color: var(--background-color);
-  opacity: 0.95;
 `;
 
 export const SideNavigationWrapper = styled.div<NavigationProps>`
@@ -134,8 +133,8 @@ export const NavigationLink = styled.a`
     &:after {
       content: '';
       position: absolute;
-      top: 50%;
       right: 1rem;
+      top: 50%;
       transform: translateY(-50%);
       width: 2rem;
       height: 2rem;
