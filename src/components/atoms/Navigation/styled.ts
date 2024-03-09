@@ -1,7 +1,8 @@
 import { media } from '@/styles/utils';
 import styled from 'styled-components';
-import { Button } from '..';
+import { Button, Paragraph } from '..';
 import Image from 'next/image';
+import { StyledButton } from '../Button/styled';
 
 export const SideNavigationContainer = styled.div`
   display: flex;
@@ -39,6 +40,11 @@ export const HomeButton = styled(Button)`
   text-decoration: none;
 `;
 
+export const PokeballContainer = styled.div`
+  cursor: pointer;
+  z-index: 100;
+`;
+
 export const PokeballImage = styled(Image)`
   position: absolute;
   bottom: 12rem;
@@ -46,7 +52,6 @@ export const PokeballImage = styled(Image)`
   margin-top: 6.25rem;
   transform: translate(50%, 50%);
   z-index: 2;
-  pointer-events: none;
   transition: transform 0.3s ease-in-out;
 `;
 
@@ -91,18 +96,30 @@ export const NavigationToggle = styled.div<NavigationProps>`
 
 export const NavigationList = styled.ul`
   list-style: none;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 5rem 0.313rem;
-  background-color: var(--background-color-tertiary);
   border-radius: 1.25rem;
   border: 0.25rem solid transparent;
+  gap: 1.25rem;
 `;
 
 export const NavigationItem = styled.li`
   padding: 0.625rem 1.25rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 1.25rem;
+  cursor: pointer; 
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
+    border: 0.5px solid var(--link-color);
+  }
 `;
 
 export const NavigationLink = styled.a`
@@ -131,6 +148,23 @@ export const NavigationLink = styled.a`
   }
 `;
 
+export const PokemonDialog = styled.dialog`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 1.25rem;
+  max-width: 480px;
+  transform: translate(-50%, -50%);
+  border: 0.25rem solid var(--link-color);
+  border-radius: 20px;
+  background-color: var(--background-color-secondary);
+`;
+
+export const PokemonDialogDescription = styled(Paragraph)`
+  margin-bottom: 1.25rem;
+  word-spacing: 6px;
+`;
+
 type NavigationProps = {
-    $isOpen: boolean;
+  $isOpen: boolean;
 };

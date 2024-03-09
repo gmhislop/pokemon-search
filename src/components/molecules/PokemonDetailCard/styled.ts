@@ -58,12 +58,19 @@ export const PokedexWrapper = styled.div`
     flex-direction: column;
 `;
 
-export const Placeholder = styled(Column)`
+export const PokemonTypeBackground = styled(Column) <PokemonTypeBackgroundProps>`
   display: flex; 
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  background-color: red;
+  background-color: ${({ $typeColor }) => $typeColor};
+`;
+
+export const PokemonRelationImage = styled(Column) <PokemonTypeBackgroundProps>`
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-color: ${({ $typeColor }) => $typeColor};
 `;
 
 export const RelationWrapper = styled.div`
@@ -77,7 +84,7 @@ export const RelationWrapper = styled.div`
   `}
 `;
 
-export const ImageTest = styled(Image).attrs({
+export const PokemonDetailImage = styled(Image).attrs({
   width: 200,
   height: 200,
 })`
@@ -95,3 +102,7 @@ export const ImageTest = styled(Image).attrs({
    top: 150px;
 `}
 `;
+
+type PokemonTypeBackgroundProps = {
+  $typeColor: string;
+}
