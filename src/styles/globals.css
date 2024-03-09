@@ -36,6 +36,11 @@ a {
   text-decoration: none;
 }
 
+::selection {
+  background-color: var(--button-filled-background);
+  color: var(--button-filled-text);
+}
+
 a:hover {
   color: var(--link-hover-color);
 }

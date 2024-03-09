@@ -163,6 +163,7 @@ export const PokemonDialog = styled.dialog`
 export const PokemonDialogDescription = styled(Paragraph)`
   margin-bottom: 1.25rem;
   word-spacing: 6px;
+  font-weight: 900;
 `;
 
 type NavigationProps = {

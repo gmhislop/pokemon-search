@@ -20,8 +20,8 @@ export const Loader = styled.div`
   border: 0.375rem solid #f3f3f3;
   border-top: 0.375rem solid var(--link-color);
   border-radius: 50%;
-  width: 5rem;
-  height: 5rem; 
+  width: 8rem;
+  height: 8rem; 
   animation: ${spin} 1s linear infinite;
 `;
 
