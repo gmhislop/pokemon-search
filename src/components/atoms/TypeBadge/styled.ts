@@ -1,14 +1,11 @@
 import styled from "styled-components";
 
 export const TypeBadge = styled.div<TypeBadgeProps>`
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 20px;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
   background-color: ${({ color }) => color};
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-right: 4px;
+  border: 2px solid var(--button-outline-border);
 `;
 
 type TypeBadgeProps = {

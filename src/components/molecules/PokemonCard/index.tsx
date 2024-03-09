@@ -1,28 +1,36 @@
 import React from 'react';
 
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
-import { PokeBallImage, PokemonCardContainer, PokemonCardId, PokemonCardImage, PokemonCardInfo, PokemonCardTitle, PokemonCardType, PokemonLink } from './styled';
-import { Row, Column } from '@/components/atoms';
+import { Divider, DividerWrapper, PokeBallImage, PokemonCardContainer, PokemonCardId, PokemonCardImage, PokemonCardInfo, PokemonCardTitle, PokemonCardType, PokemonLink } from './styled';
+import { Column, Row } from '@/components/atoms';
+import { getTypeColor } from '@/services/getColor';
+import { TypeBadge } from '@/components/atoms/TypeBadge/styled';
 
-export const PokemonCard = ({ title, image, types, id }:PokemonCardProps) => {
+export const PokemonCard = ({ title, image, types, id }: PokemonCardProps) => {
   return (
     <PokemonLink href={`/pokemon/${id}`}>
-    <PokemonCardContainer>
-      <PokemonCardTitle as='h2'>{title.toUpperCase()}</PokemonCardTitle>
-      <PokemonCardImage src={image} alt={title} width={200} height={200} loading='lazy' />
-      <Row $alignItems='left' $justifyContent='center' $gap={1}>
+      <PokemonCardContainer $typeColor={getTypeColor(types[0])}>
+        <Row $alignItems='center' $justifyContent='space-between' $isFullWidth>
+          <PokemonCardTitle as='h2'>{title}</PokemonCardTitle>
+          <TypeBadge color={getTypeColor(types[0])} />
+        </Row>
+        <PokemonCardImage src={image} alt={title} width={200} height={200} loading='lazy' />
         <PokemonCardId>#{id}</PokemonCardId>
-      </Row>
-      <PokemonCardInfo>
-        {types.map((type, index) => (
-          <Column key={index} $alignItems='center' $justifyContent='center' $isFullHeight>
-            <PokemonCardType color={type}>{type}</PokemonCardType>
-          </Column>
-        ))}
-      </PokemonCardInfo>
-      <PokeBallImage src={'/images/pokeball.png'} alt={'pokeball'} width={120} height={120} loading='lazy' />
-    </PokemonCardContainer>
-    </PokemonLink>
+        <PokemonCardInfo>
+          {types.map((type, index) => (
+            <Row key={index} $alignItems='center' $justifyContent='center' $isFullWidth>
+              <TypeBadge key={index} color={getTypeColor(type)} /><PokemonCardType>{type}
+              </PokemonCardType>
+            </Row>
+          ))}
+        </PokemonCardInfo>
+        <DividerWrapper $gap={16} $isFullHeight>
+          <Divider />
+          <Divider />
+        </DividerWrapper>
+        <PokeBallImage src={'/images/pokeball.png'} alt={'pokeball'} width={120} height={120} loading='lazy' />
+      </PokemonCardContainer>
+    </PokemonLink >
   );
 };
 

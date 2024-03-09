@@ -2,9 +2,10 @@ import { Button } from "@/components/atoms";
 import Image from "next/image";
 import * as i from "types";
 import { PokeDetailContainer, PokedexImage, PokedexTitle, PokedexWrapper, PokemonDetailImage, PokemonRelationImage, PokemonTypeBackground, RelationWrapper } from "./styled";
-
-
+import { getTypeColor } from "@/services/getColor";
 export const PokemonDetailCard = ({ pokemonData, relationImages }: PokemonDetailCardProps) => {
+
+  const pokemonTypeColor = pokemonData?.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes_aggregate.nodes[0].pokemon_v2_type.name;
   return (
     <PokeDetailContainer>
       <Button $variant="outline" href="/">Back</Button>
@@ -15,16 +16,17 @@ export const PokemonDetailCard = ({ pokemonData, relationImages }: PokemonDetail
       </PokedexWrapper>
       <RelationWrapper>
         {relationImages?.map((imageSrc: string, index) => (
-          <PokemonRelationImage key={index} $typeColor="red">
+          <PokemonRelationImage key={index} $typeColor={getTypeColor(pokemonTypeColor ?? '')}>
             <Image width={200} height={200} src={imageSrc} alt="pokemon" />
           </PokemonRelationImage>
         ))}
-
         {!relationImages && (
           <>
-            <PokemonTypeBackground $typeColor="red" />
-            <PokemonTypeBackground $typeColor="blue" />
-            <PokemonTypeBackground $typeColor="green" />
+            {pokemonData?.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes_aggregate.nodes.map((typeNode, index) => (
+              <PokemonTypeBackground key={index} $typeColor={getTypeColor(typeNode.pokemon_v2_type.name)}>
+                {typeNode.pokemon_v2_type.name}
+              </PokemonTypeBackground>
+            ))}
           </>
         )}
       </RelationWrapper>
@@ -35,4 +37,4 @@ export const PokemonDetailCard = ({ pokemonData, relationImages }: PokemonDetail
 type PokemonDetailCardProps = {
   pokemonData: i.PokemonSpecies | null;
   relationImages: string[] | null;
-}
+};

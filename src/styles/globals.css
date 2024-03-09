@@ -13,6 +13,7 @@
   --button-outline-text: #FFFFFF;
   --button-hover-filled-background: #F5D780; 
   --button-hover-outline-text: #F5D780; 
+  --card-border: #d1d3d4;
 }
 
 * {

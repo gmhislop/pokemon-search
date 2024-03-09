@@ -23,10 +23,11 @@ export const PokedexImage = styled(Image).attrs({
 })`
 z-index: 1;
 border: 1px solid var(--color-primary);
+
 ${media.tablet`
   width: 600px;
   height: 400px;
-  `}
+`}
 
 ${media.desktop`
   width: 800px;

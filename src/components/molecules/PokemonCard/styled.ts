@@ -25,13 +25,19 @@ export const PokemonLink = styled(Link)`
   }
 `;
 
-export const PokemonCardContainer = styled(Column)`
+export const PokemonCardContainer = styled(Column) <PokemonCardContainerProps>`
   padding: 1rem;
   align-items: center;
-  border: 6px solid #f9e363;
+  border: 12px solid var(--card-border);
   border-radius: 16px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  background-color: gray;
+  background-image: 
+    linear-gradient(to bottom, ${({ $typeColor }) => `${$typeColor}90`}, ${({ $typeColor }) => $typeColor}), /* Gradient background */
+    url('/images/paint-background.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  opacity: 0.8;
   min-height: 500px;
   gap: 1rem;
   transition: transform 0.3s ease-in-out;
@@ -42,28 +48,38 @@ export const PokemonCardContainer = styled(Column)`
   }
 `;
 
+type PokemonCardContainerProps = {
+  $typeColor: string;
+};
+
 export const PokemonCardTitle = styled(Heading)`
   text-align: center;
-  color: white;
+  color: black;
+  text-transform: capitalize;
+  font-weight: 400;
 `;
 
 export const PokemonCardId = styled(Paragraph)`
-  width: 100%;
   text-transform: capitalize;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: black;
 `;
 
 export const PokemonCardType = styled(Paragraph)`
   padding: 0.5rem 1rem;
-  border-radius: 4px;
-  border: 1px solid #f9e363;
   width: 100%;
   text-transform: capitalize;
   font-weight: bold;
+  color: black;
 `;
 
 export const PokemonCardImage = styled(Image)`
   border-radius: 5px;
-  border: 2px solid black;
+  border-top: 2px solid var(--card-border);
+  border-right: 2px solid var(--card-border);
+  border-left: 2px solid var(--card-border);
+  border-bottom: 12px solid var(--card-border); 
   width: 100%;
   height: 10rem;
   object-fit: contain;
@@ -74,4 +90,15 @@ export const PokemonCardInfo = styled(Column)`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+`;
+
+export const Divider = styled.div`
+  width: 100%;
+  height: 2px;
+  background-color: var(--card-border);
+`;
+
+export const DividerWrapper = styled(Column)`
+  margin-top: auto;
+  margin-bottom: 1rem;
 `;
