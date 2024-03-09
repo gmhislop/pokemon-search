@@ -2,6 +2,7 @@
 import * as i from 'types';
 import { useState } from 'react';
 import { DeleteButton, InputContainer, StyledInput } from './styled';
+import { Button } from '@/components/atoms';
 
 export const PokemonFilter = ({ pokemonData, onFilter }: PokemonFilterProps) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -29,7 +30,7 @@ export const PokemonFilter = ({ pokemonData, onFilter }: PokemonFilterProps) => 
                 placeholder="Search by name..."
             />
             {searchTerm && (
-                <DeleteButton $variant='outline' onClick={handleClearSearch}>Clear</DeleteButton>
+                <Button $variant='filled' onClick={handleClearSearch}>Clear</Button>
             )}
         </InputContainer>
     );

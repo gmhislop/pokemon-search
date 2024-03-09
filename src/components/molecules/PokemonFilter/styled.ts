@@ -21,8 +21,3 @@ export const StyledInput = styled.input`
 export const InputContainer = styled(Column)`
   position: relative;
 `;
-
-export const DeleteButton = styled(Button)`
-  position: absolute;
-  margin: 2rem 0;
-`;
