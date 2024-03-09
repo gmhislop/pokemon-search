@@ -32,8 +32,8 @@ export const PokemonCardContainer = styled(Column) <PokemonCardContainerProps>`
   border-radius: 16px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   background-image: 
-    linear-gradient(to bottom, ${({ $typeColor }) => `${$typeColor}90`}, ${({ $typeColor }) => $typeColor}), /* Gradient background */
-    url('/images/paint-background.webp');
+    linear-gradient(to bottom, ${({ $typeColor }) => `${$typeColor}90`}, ${({ $typeColor }) => $typeColor}),
+    url('/images/paint-background.jpeg');
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
