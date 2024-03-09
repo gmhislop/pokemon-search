@@ -1,8 +1,7 @@
 import { media } from '@/styles/utils';
-import styled from 'styled-components';
-import { Button, Paragraph, spin } from '..';
 import Image from 'next/image';
-import { StyledButton } from '../Button/styled';
+import styled from 'styled-components';
+import { Button, Paragraph } from '..';
 
 export const SideNavigationContainer = styled.div`
   display: flex;
