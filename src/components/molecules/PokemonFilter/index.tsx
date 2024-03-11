@@ -1,4 +1,3 @@
-"use client";
 import { Button } from '@/components/atoms';
 import { useState } from 'react';
 import * as i from 'types';
@@ -11,7 +10,8 @@ export const PokemonFilter = ({ pokemonData, onFilter }: PokemonFilterProps) => 
         const value = event.target.value;
         setSearchTerm(value);
         const filteredPokemon = pokemonData.filter(pokemon =>
-            pokemon.name.toLowerCase().includes(value.toLowerCase())
+        (pokemon.name.toLowerCase().includes(value.toLowerCase()) ||
+            pokemon.id.toString().includes(value))
         );
         onFilter(filteredPokemon);
     };
@@ -27,7 +27,7 @@ export const PokemonFilter = ({ pokemonData, onFilter }: PokemonFilterProps) => 
                 type="text"
                 value={searchTerm}
                 onChange={handleSearch}
-                placeholder="Search by name..."
+                placeholder="Search by name or ID..."
             />
             {searchTerm && (
                 <Button $variant='filled' onClick={handleClearSearch}>Clear</Button>

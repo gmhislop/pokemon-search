@@ -2,7 +2,7 @@ import { Button, Column } from "@/components/atoms";
 import { styled } from "styled-components";
 
 export const StyledInput = styled.input`
-  width: 12rem;
+  width: 16rem;
   padding: 1rem 2rem;
   margin: 2rem;
   border: 1px solid gray;
