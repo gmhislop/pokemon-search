@@ -22,7 +22,6 @@ export const GET_POKEMON_BY_ID = gql`
           }
         }
       }
-      evolves_from_species_id
     }
   }
 `;

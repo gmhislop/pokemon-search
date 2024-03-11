@@ -3,7 +3,7 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 export type PokemonType = {
   type_id: number;
   pokemon_v2_type: {
-  name: string;
+    name: string;
   };
 };
 
@@ -15,6 +15,7 @@ export type Pokemon = {
   pokemon_v2_pokemontypes_aggregate: {
     nodes: PokemonType[];
   };
+  base_experience: number;
 };
 
 export type PokemonSpecies = {
@@ -22,7 +23,6 @@ export type PokemonSpecies = {
   name: string;
   evolution_chain_id: number;
   pokemon_v2_pokemons: Pokemon[];
-  evolves_from_species_id: number | null;
 };
 
 export type PokemonSpeciesData = {

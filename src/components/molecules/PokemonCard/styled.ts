@@ -33,7 +33,7 @@ export const PokemonCardContainer = styled(Column) <PokemonCardContainerProps>`
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   background-image: 
     linear-gradient(to bottom, ${({ $typeColor }) => `${$typeColor}90`}, ${({ $typeColor }) => $typeColor}),
-    url('/images/paint-background.jpeg');
+    url('/images/paint-background.webp');
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
@@ -56,7 +56,19 @@ export const PokemonCardTitle = styled(Heading)`
   text-align: center;
   color: black;
   text-transform: capitalize;
-  font-weight: 400;
+  font-weight: 600;
+`;
+
+export const PokemonExperience = styled(Paragraph)`
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: black;
+`;
+
+export const PokemonHP = styled(Paragraph)`
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: black;
 `;
 
 export const PokemonCardId = styled(Paragraph)`

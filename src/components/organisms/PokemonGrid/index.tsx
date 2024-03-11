@@ -13,6 +13,7 @@ export const PokemonGrid = ({ pokemonData }: { pokemonData: i.PokemonSpecies[] }
           title={pokemon.name}
           image={pokemon.pokemon_v2_pokemons[0].pokemon_v2_pokemonsprites[0].sprites}
           types={pokemon.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes_aggregate.nodes.map((type) => type.pokemon_v2_type.name)}
+          base_experience={pokemon.pokemon_v2_pokemons[0].base_experience}
         />
       ))}
     </PokemonGridContainer>

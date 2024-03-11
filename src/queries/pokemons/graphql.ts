@@ -25,8 +25,8 @@ export const GET_POKEMONS = gql`
           }
         }
       }
+      base_experience
     }
-    evolves_from_species_id
   }
 }
 `;
