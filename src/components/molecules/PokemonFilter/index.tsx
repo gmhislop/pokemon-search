@@ -7,11 +7,11 @@ export const PokemonFilter = ({ pokemonData, onFilter }: PokemonFilterProps) => 
     const [searchTerm, setSearchTerm] = React.useState('');
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value;
+        const value = event.target.value.trim();
         setSearchTerm(value);
         const filteredPokemon = pokemonData.filter(pokemon =>
         (pokemon.name.toLowerCase().includes(value.toLowerCase()) ||
-            pokemon.id.toString().includes(value))
+            pokemon.id.toString() === value)
         );
         onFilter(filteredPokemon);
     };
