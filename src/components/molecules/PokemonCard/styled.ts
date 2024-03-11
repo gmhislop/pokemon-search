@@ -54,6 +54,7 @@ export const PokemonCardTitle = styled(Heading)`
   color: ${({ theme }) => theme.colors.textSecondary};
   text-transform: capitalize;
   font-weight: 600;
+  white-space: nowrap;
 `;
 
 export const PokemonExperience = styled(Paragraph)`
