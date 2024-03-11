@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pokémon Web Application
 
-## Getting Started
+Welcome to the Pokémon Web Application! This web app allows users to explore Pokémon data using the [PokeAPI](https://pokeapi.co/).
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Search:** Search for Pokémon by name or ID.
+- **Filter:** Filter Pokémon by name, type, or other attributes.
+- **View Details:** Click on a Pokémon to view detailed information.
+- **Infinite Scroll:** Scroll through an endless list of Pokémon from the kanto region.
+- **Responsive Design:** Enjoy a seamless experience on various devices.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- React.js
+- Next.js
+- TypeScript
+- Styled Components
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Setup
 
-## Learn More
+1. Clone the repository:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/gmhislop/pokemon-search.git
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   cd pokemon-search
+   npm install
+   ```
 
-## Deploy on Vercel
+3. Start the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. Open your browser and navigate to `http://localhost:3000` to view the app.
+
+## Credits
+
+- This project makes use of the [PokeAPI](https://pokeapi.co/), an open API for Pokémon data.
+- Special thanks to the contributors of the [Styled Components](https://styled-components.com/) library for providing powerful styling solutions.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
