@@ -1,15 +1,14 @@
-import React from 'react';
 
+import { Row } from '@/components/atoms';
+import { TypeBadge } from '@/components/atoms/TypeBadge/styled';
+import { getTypeColor } from '@/services/getColor';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { Divider, DividerWrapper, PokeBallImage, PokemonCardContainer, PokemonCardId, PokemonCardImage, PokemonCardInfo, PokemonCardTitle, PokemonCardType, PokemonExperience, PokemonHP, PokemonLink } from './styled';
-import { Column, Paragraph, Row } from '@/components/atoms';
-import { getTypeColor } from '@/services/getColor';
-import { TypeBadge } from '@/components/atoms/TypeBadge/styled';
 
 export const PokemonCard = ({ title, image, types, id, base_experience }: PokemonCardProps) => {
   return (
     <PokemonLink href={`/pokemon/${id}`}>
-      <PokemonCardContainer $typeColor={getTypeColor(types[0])}>
+      <PokemonCardContainer color={getTypeColor(types[0])}>
         <Row $alignItems='center' $justifyContent='space-between' $isFullWidth>
           <PokemonCardTitle as='h2'>{title}</PokemonCardTitle>
           <Row $justifyContent='flex-end' $isFullWidth $gap={4}>
@@ -17,7 +16,7 @@ export const PokemonCard = ({ title, image, types, id, base_experience }: Pokemo
             <TypeBadge color={getTypeColor(types[0])} />
           </Row>
         </Row>
-        <PokemonCardImage src={image} alt={title} width={200} height={200} quality={30} loading='lazy' />
+        <PokemonCardImage color={getTypeColor(types[0])} src={image} alt={title} width={200} height={200} loading='lazy' />
         <PokemonCardId>#{id}</PokemonCardId>
         <PokemonCardInfo>
           {types.map((type, index) => (

@@ -9,7 +9,7 @@ export const SideNavigationContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   z-index: 2;
-  background-color: var(--background-color);
+  background-color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const SideNavigationWrapper = styled.div<NavigationProps>`
@@ -18,8 +18,8 @@ export const SideNavigationWrapper = styled.div<NavigationProps>`
   left: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
   width: 100%;
   height: 100%;
-  background-color: var(--background-color-secondary);
-  border: 4px solid var(--link-color);
+  background-color: ${({ theme }) => theme.colors.secondary};
+  border: 4px solid ${({ theme }) => theme.colors.link};
   transition: left 0.3s ease-in-out;
   z-index: 2;
 
@@ -67,7 +67,7 @@ export const Overlay = styled.div`
 export const Bar = styled.div`
   width: 1.563rem;
   height: 0.188rem;
-  background-color: var(--background-color-tertiary);
+  background-color: ${({ theme }) => theme.colors.tertiary};
   margin: 0.313rem 0;
   transition: transform 0.3s ease-in-out;
 `;
@@ -124,7 +124,7 @@ export const NavigationLink = styled.a`
   &:hover {
     background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
-    border: 0.5px solid var(--link-color);
+    border: 0.5px solid ${({ theme }) => theme.colors.link};
   }
   font-size: 2rem;
 
@@ -150,9 +150,9 @@ export const PokemonDialog = styled.dialog`
   padding: 1.25rem;
   max-width: 480px;
   transform: translate(-50%, -50%);
-  border: 0.25rem solid var(--link-color);
+  border: 0.25rem solid ${({ theme }) => theme.colors.link};
   border-radius: 20px;
-  background-color: var(--background-color-secondary);
+  background-color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const PokemonDialogDescription = styled(Paragraph)`

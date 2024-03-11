@@ -27,3 +27,37 @@ export const searchPokemonByName = async (name: string | string[]): Promise<i.Po
     return null;
   }
 };
+
+export const getEvolutionChainId = (pokemonSpeciesArray: any, selectedPokemonId: number): number | null => {
+  for (const species of pokemonSpeciesArray) {
+    if (species.id === selectedPokemonId) {
+      return species.evolution_chain_id;
+    }
+  }
+  console.warn('No evolution chain found for the selected Pokémon ID.');
+  return null;
+}
+
+export const getSpritesArrayForEvolutionChain = (pokemonSpeciesArray: any, evolutionChainId: number, selectedPokemonId: number): string[] => {
+  const spritesArray: string[] = [];
+  for (const species of pokemonSpeciesArray) {
+    if (species.evolution_chain_id === evolutionChainId && species.id !== selectedPokemonId) {
+      const pokemons = species.pokemon_v2_pokemons;
+      for (const pokemon of pokemons) {
+        const spritesInfo = pokemon.pokemon_v2_pokemonsprites;
+        for (const sprite of spritesInfo) {
+          spritesArray.push(sprite.sprites);
+        }
+      }
+    }
+  }
+  return spritesArray;
+}
+
+export const getPokemonSpritesByEvolutionChain = (pokemonSpeciesArray: any, selectedPokemonId: number): string[] => {
+  const evolutionChainId = getEvolutionChainId(pokemonSpeciesArray, selectedPokemonId);
+  if (evolutionChainId === null) {
+    return [];
+  }
+  return getSpritesArrayForEvolutionChain(pokemonSpeciesArray, evolutionChainId, selectedPokemonId);
+}

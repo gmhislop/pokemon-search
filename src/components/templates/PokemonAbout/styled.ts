@@ -17,7 +17,7 @@ export const PokemonAboutWrapper = styled.div`
   align-items: center;
   padding: 1rem;
   border-radius: 12px;
-  border: 0.063rem solid var(--link-color);
+  border: 0.063rem solid ${({ theme }) => theme.colors.link};
   box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
   max-width: 50rem;
   min-height: 31.25rem;

@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import Image from 'next/image';
 
 const spin = keyframes`
   from {
@@ -12,7 +11,7 @@ const spin = keyframes`
 
 export const Loader = styled.div`
   border: 0.375rem solid #f3f3f3;
-  border-top: 0.375rem solid var(--link-color);
+  border-top: 0.375rem solid ${({ theme }) => theme.colors.link};
   border-radius: 50%;
   width: 8rem;
   height: 8rem;
@@ -20,9 +19,7 @@ export const Loader = styled.div`
 `;
 
 const LoaderAnimation = () => {
-  return <Loader>
-    <Image src={'vector/pokeball.svg'} alt={'Pokeball'} width={200} height={200} />
-  </Loader>
+  return <Loader />;
 };
 
 export default LoaderAnimation;

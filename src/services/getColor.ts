@@ -1,4 +1,4 @@
-const typeColorMap: Record<string, string> = {
+export const typeColorMap: Record<string, string> = {
   normal: '#A8A77A',
   fire: '#EE8130',
   water: '#6390F0',
@@ -23,3 +23,4 @@ export const getTypeColor = (type: string): string => {
   const lowercaseType = type.toLowerCase();
   return typeColorMap[lowercaseType] || '#FFFFFF';
 };
+

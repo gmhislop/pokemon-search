@@ -12,34 +12,34 @@ export const StyledButton = styled.button<ButtonProps>`
     background-color 0.3s,
     color 0.3s;
 
-  ${({ $variant }) =>
+  ${({ $variant, theme }) =>
     $variant === 'filled' &&
     css`
-      background-color: var(--button-filled-background);
-      color: var(--button-filled-text);
-      border: 0.125rem solid var(--button-filled-border);
+      background-color: ${theme.colors.buttonBackground};
+      color: ${theme.colors.buttonText};
+      border: 0.125rem solid ${theme.colors.buttonBorder};
     `}
 
-  ${({ $variant }) =>
+  ${({ $variant, theme }) =>
     $variant === 'outline' &&
     css`
       background-color: transparent;
-      border: 0.125rem solid var(--button-outline-border);
-      color: var(--button-outline-text);
+      border: 0.125rem solid ${theme.colors.buttonOutlineBorder};
+      color: ${theme.colors.buttonOutlineText};
     `}
 
   &:hover {
-    ${({ $variant }) =>
-      $variant === 'filled' &&
-      css`
-        background-color: var(--button-hover-filled-background);
-        color: var(--button-filled-text);
+    ${({ $variant, theme }) =>
+    $variant === 'filled' &&
+    css`
+        background-color: ${theme.colors.buttonHoverBackground};
+        color: ${theme.colors.buttonText};
       `}
 
-    ${({ $variant }) =>
-      $variant === 'outline' &&
-      css`
-        color: var(--button-hover-outline-text);
+    ${({ $variant, theme }) =>
+    $variant === 'outline' &&
+    css`
+        color: ${theme.colors.buttonHoverOutlineText};
       `}
   }
 `;

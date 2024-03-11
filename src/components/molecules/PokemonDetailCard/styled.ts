@@ -22,7 +22,7 @@ export const PokedexImage = styled(Image).attrs({
   height: 200,
 })`
 z-index: 1;
-border: 1px solid var(--color-primary);
+border: 1px solid ${({ theme }) => theme.colors.primary};
 
 ${media.tablet`
   width: 600px;

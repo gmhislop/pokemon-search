@@ -16,6 +16,6 @@ export const NotFoundGif = styled.img`
 
 export const NotFoundTitle = styled(Heading)`
   font-size: 2rem;
-  color: var(--link-color);
+  color: ${({ theme }) => theme.colors.link};
   margin-bottom: 1rem;
 `;
