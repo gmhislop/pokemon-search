@@ -15,13 +15,13 @@ export const PokemonAboutWrapper = styled.div`
   flex-direction: column;
   gap: 1.25rem;
   align-items: center;
-  padding: 3rem;
+  padding: 1rem;
   border-radius: 12px;
   border: 0.063rem solid var(--link-color);
   box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
   max-width: 50rem;
   min-height: 31.25rem;
-  margin-top: 6.25rem;
+  margin-top: 1rem;
 
   ${media.tablet`
     flex-direction: row;
