@@ -2,6 +2,7 @@ import { media } from '@/styles/utils';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Button, Paragraph } from '..';
+import Link from 'next/link';
 
 export const SideNavigationContainer = styled.div`
   display: flex;
@@ -18,13 +19,13 @@ export const SideNavigationWrapper = styled.div<NavigationProps>`
   left: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme }) => theme.colors.primary};
   border: 4px solid ${({ theme }) => theme.colors.link};
   transition: left 0.3s ease-in-out;
   z-index: 2;
 
   ${media.tablet`
-    width: 25rem;
+    width: 16rem;
     height: 31.25rem;
     border-radius: 0 20px 20px 0;
   `}
@@ -106,10 +107,10 @@ export const NavigationList = styled.ul`
 export const NavigationItem = styled.li`
 `;
 
-export const NavigationLink = styled.a`
+export const NavigationLink = styled(Link)`
   position: relative;
   display: inline-block;
-  color: red;
+  color: ${({ theme }) => theme.colors.primary};
   width: 100%;
   text-decoration: none;
   padding: 0.625rem 1.25rem;
@@ -123,6 +124,7 @@ export const NavigationLink = styled.a`
   
   &:hover {
     background-color: rgba(255, 255, 255, 0.5);
+    color: ${({ theme }) => theme.colors.secondary};
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
     border: 0.5px solid ${({ theme }) => theme.colors.link};
   }
