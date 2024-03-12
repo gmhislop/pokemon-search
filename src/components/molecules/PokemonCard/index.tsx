@@ -7,7 +7,7 @@ import { Divider, DividerWrapper, PokeBallImage, PokemonCardContainer, PokemonCa
 
 export const PokemonCard = ({ title, image, types, id, base_experience }: PokemonCardProps) => {
   return (
-    <PokemonLink href={`/pokemon/${id}`}>
+    <PokemonLink href={`/pokemon/${id}`} data-testid="pokemon-card">
       <PokemonCardContainer color={getTypeColor(types[0])}>
         <Row $alignItems='center' $justifyContent='space-between' $isFullWidth>
           <PokemonCardTitle as='h2'>{title}</PokemonCardTitle>

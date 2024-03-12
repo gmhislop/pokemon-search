@@ -19,7 +19,7 @@ export const Loader = styled.div`
 `;
 
 const LoaderAnimation = () => {
-  return <Loader />;
+  return <Loader data-testid="loader" />;
 };
 
 export default LoaderAnimation;
