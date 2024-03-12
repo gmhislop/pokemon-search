@@ -6,14 +6,18 @@ import { ThemeProvider } from 'styled-components';
 
 import { StyledComponentsRegistry } from 'styles/registry';
 import theme from 'styles/theme';
+import { ApolloProvider } from '@apollo/client';
+import client from '@/services/graphql';
 
 export const Providers = ({ children }: ProvidersProps) => {
     return (
         <StyledComponentsRegistry>
-            <ThemeProvider theme={theme}>
-                <GlobalStyle />
-                {children}
-            </ThemeProvider>
+            <ApolloProvider client={client}>
+                <ThemeProvider theme={theme}>
+                    <GlobalStyle />
+                    {children}
+                </ThemeProvider>
+            </ApolloProvider>
         </StyledComponentsRegistry>
     );
 };

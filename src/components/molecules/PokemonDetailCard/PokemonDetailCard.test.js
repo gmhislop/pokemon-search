@@ -24,6 +24,7 @@ jest.mock('@/services/getColor', () => ({
     }),
 }));
 
+// Theme mock, adjust to match your actual theme structure
 const mockTheme = {
   colors: {
     primary: '#ff00ff',
@@ -116,7 +117,7 @@ describe('PokemonDetailCard', () => {
   
     types.forEach((typeNode) => {
       const typeName = typeNode.pokemon_v2_type.name;
-      const typeColor = getTypeColor(typeName);
+      const typeColor = getTypeColor(typeName); // This should now refer to the mocked function
       const element = screen.getByText(typeName);
       
       expect(element).toBeInTheDocument();

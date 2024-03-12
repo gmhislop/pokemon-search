@@ -1,67 +1,53 @@
 "use client";
 
-import * as i from '@/types';
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import React from 'react';
+import { useQuery } from '@apollo/client';
 import { Loader } from '@/components/atoms';
 import { PokemonDetailCard } from '@/components/molecules';
-import { getPokemonById, getPokemonSpritesByEvolutionChain, searchPokemonByName } from '@/queries/pokemon';
+import { GET_POKEMON_BY_ID, SEARCH_POKEMON_BY_NAME } from '@/queries/pokemon/graphql';
+import { GET_POKEMONS } from '@/queries/pokemons/graphql';
 import { notFound, useParams } from 'next/navigation';
 import { PokemonDetailContainer } from './styled';
-import { getPokemons } from '@/queries/pokemons';
+import { getPokemonSpritesByEvolutionChain } from '@/queries/pokemon';
 
 const PokemonDetailPage = () => {
-  const params = useParams()
-
+  const params = useParams();
   const { id, name } = params;
-  const [pokemonData, setPokemonData] = useState<i.PokemonSpecies | null>(null);
-  const [relationImages, setRelationImages] = useState<string[] | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (id) {
-          const pokemonId = parseInt(id as string);
-          const pokemon = await getPokemonById(pokemonId);
-          setPokemonData(pokemon);
-        } else if (name) {
-          const pokemon = await searchPokemonByName(name);
-          setPokemonData(pokemon);
-        }
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching pokemon:', error);
-      }
-    };
+  // Define the queries based on the params
+  const { data: pokemonData, loading: loadingPokemon, error: errorPokemon } = useQuery(
+    id ? GET_POKEMON_BY_ID : SEARCH_POKEMON_BY_NAME,
+    { variables: { id: parseInt(id as string), name: name }, skip: !id && !name }
+  );
 
-    fetchData();
+  const { data: pokemonSpeciesData, loading: loadingPokemons, error: errorPokemons } = useQuery(GET_POKEMONS, {
+    skip: !id,
+  });
 
-    const fetchAllPokemonsData = async () => {
-      try {
-        const data = await getPokemons();
-        const images = getPokemonSpritesByEvolutionChain(data.pokemon_v2_pokemonspecies, parseInt(id as string))
-        setRelationImages(images);
-      } catch (error) {
-        console.error('Error fetching pokemons:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchAllPokemonsData();
-  }, [id, name]);
-
-  if (loading) {
+  if (loadingPokemon || loadingPokemons) {
     return <Loader />;
   }
 
-  if (!pokemonData) {
+  if (errorPokemon || errorPokemons) {
+    console.error('Error fetching:', errorPokemon || errorPokemons);
+    return notFound();
+  }
+
+  let relationImages = null;
+  if (pokemonSpeciesData && pokemonSpeciesData.pokemon_v2_pokemonspecies) {
+    relationImages = getPokemonSpritesByEvolutionChain(
+      pokemonSpeciesData.pokemon_v2_pokemonspecies,
+      parseInt(id as string)
+    );
+  }
+
+  if (!loadingPokemon && !pokemonData) {
     return notFound();
   }
 
   return (
     <PokemonDetailContainer>
-      <PokemonDetailCard pokemonData={pokemonData} relationImages={relationImages} />
+      <PokemonDetailCard pokemonData={pokemonData?.pokemon_v2_pokemonspecies[0]} relationImages={relationImages} />
     </PokemonDetailContainer>
   );
 };
