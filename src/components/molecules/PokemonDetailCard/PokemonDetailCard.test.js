@@ -9,7 +9,7 @@ import { getTypeColor } from '@/services/getColor';
 jest.mock('next/image', () => ({
   __esModule: true,
   default: (props) => {
-    // eslint-disable-next-line jsx-a11y/alt-text
+    // eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element
     return <img {...props} />;
   },
 }));
@@ -24,7 +24,6 @@ jest.mock('@/services/getColor', () => ({
     }),
 }));
 
-// Theme mock, adjust to match your actual theme structure
 const mockTheme = {
   colors: {
     primary: '#ff00ff',
@@ -117,14 +116,11 @@ describe('PokemonDetailCard', () => {
   
     types.forEach((typeNode) => {
       const typeName = typeNode.pokemon_v2_type.name;
-      const typeColor = getTypeColor(typeName); // This should now refer to the mocked function
+      const typeColor = getTypeColor(typeName);
       const element = screen.getByText(typeName);
       
       expect(element).toBeInTheDocument();
       expect(element).toHaveStyle(`background-color: ${typeColor}`);
     });
   });
-  
-
-  // Other test cases could include testing for the absence of relation images when the prop is null, handling of `null` pokemonData, etc.
 });
