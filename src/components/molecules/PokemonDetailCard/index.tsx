@@ -15,15 +15,15 @@ export const PokemonDetailCard = ({ pokemonData, relationImages }: PokemonDetail
         <PokedexTitle>{pokemonData?.name}</PokedexTitle>
       </PokedexWrapper>
       <RelationWrapper>
-        {relationImages?.map((imageSrc: string, index) => (
-          <PokemonRelationImage key={index} $typeColor={getTypeColor(pokemonTypeColor ?? '')}>
+        {relationImages?.map((imageSrc: string) => (
+          <PokemonRelationImage key={imageSrc} $typeColor={getTypeColor(pokemonTypeColor ?? '')}>
             <Image width={200} height={200} src={imageSrc} alt="pokemon" />
           </PokemonRelationImage>
         ))}
         {!relationImages && (
           <>
-            {pokemonData?.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes_aggregate.nodes.map((typeNode, index) => (
-              <PokemonTypeBackground key={index} $typeColor={getTypeColor(typeNode.pokemon_v2_type.name)}>
+            {pokemonData?.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes_aggregate.nodes.map((typeNode) => (
+              <PokemonTypeBackground key={typeNode.type_id} $typeColor={getTypeColor(typeNode.pokemon_v2_type.name)}>
                 {typeNode.pokemon_v2_type.name}
               </PokemonTypeBackground>
             ))}
