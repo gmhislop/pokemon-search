@@ -1,6 +1,4 @@
-import React from 'react';
 import { NotFoundContainer, NotFoundGif, NotFoundTitle } from './styled';
-import { Button } from '@/components/atoms';
 
 
 
@@ -12,5 +10,3 @@ export const NotFoundPage = () => {
         </NotFoundContainer>
     );
 };
-
-export default NotFoundPage;

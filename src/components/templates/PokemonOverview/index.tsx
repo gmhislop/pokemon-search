@@ -4,11 +4,11 @@ import * as i from 'types';
 import { useQuery } from '@apollo/client';
 import { GET_POKEMONS } from '@/queries/pokemons/graphql';
 import { PokemonOverviewContainer } from './styled';
-import { Loader } from '@/components/atoms';
 import { PokemonGrid } from '@/components/organisms';
 import { PokemonFilter } from '@/components/molecules';
-import NotFoundPage from '@/components/molecules/Notfound';
 import { useEffect, useState } from 'react';
+import { NotFoundPage } from '@/components/molecules/Notfound';
+import { Loader } from '@/components/atoms';
 
 const PokemonOverview = () => {
   const { data, loading, error } = useQuery(GET_POKEMONS);
@@ -35,7 +35,11 @@ const PokemonOverview = () => {
   return (
     <PokemonOverviewContainer>
       <PokemonFilter pokemonData={data?.pokemon_v2_pokemonspecies} onFilter={handleFilter} />
-      <PokemonGrid pokemonData={filteredPokemon} />
+      {filteredPokemon.length > 0 ? (
+        <PokemonGrid pokemonData={filteredPokemon} />
+      ) : (
+        <NotFoundPage />
+      )}
     </PokemonOverviewContainer>
   );
 };

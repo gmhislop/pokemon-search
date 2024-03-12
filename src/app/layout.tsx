@@ -1,6 +1,5 @@
 import SideNavigation from "@/components/atoms/Navigation";
 import type { Metadata } from "next";
-import "styles/globals.css";
 import { Providers } from "./Providers";
 
 export const metadata: Metadata = {

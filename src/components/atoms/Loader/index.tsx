@@ -15,6 +15,10 @@ export const Loader = styled.div`
   border-radius: 50%;
   width: 8rem;
   height: 8rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   animation: ${spin} 1s linear infinite;
 `;
 
