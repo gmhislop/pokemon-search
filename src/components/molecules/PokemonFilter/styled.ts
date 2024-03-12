@@ -1,10 +1,10 @@
-import { Column } from "@/components/atoms";
+import { Row } from "@/components/atoms";
 import { styled } from "styled-components";
 
 export const StyledInput = styled.input`
   width: 16rem;
   padding: 1rem 2rem;
-  margin: 2rem;
+  margin: 1rem 0;
   border: 1px ${({ theme }) => theme.colors.cardBorder};
   border-radius: 12px;
   font-size: 1rem;
@@ -18,6 +18,6 @@ export const StyledInput = styled.input`
   }
   `;
 
-export const InputContainer = styled(Column)`
+export const InputContainer = styled(Row)`
   position: relative;
 `;

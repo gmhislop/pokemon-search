@@ -22,7 +22,7 @@ export const PokemonFilter = ({ pokemonData, onFilter }: PokemonFilterProps) => 
     };
 
     return (
-        <InputContainer $isFullWidth $alignItems='center' $justifyContent='center'>
+        <InputContainer $isFullWidth $alignItems='center' $gap={16}>
             <StyledInput
                 type="text"
                 value={searchTerm}
