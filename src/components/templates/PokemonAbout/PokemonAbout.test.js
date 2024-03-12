@@ -13,6 +13,7 @@ const mockTheme = {
 // Mocking next/image
 jest.mock('next/image', () => ({
     __esModule: true,
+    // eslint-disable-next-line @next/next/no-img-element
     default: ({ src, alt, width, height }) => <img src={src} alt={alt} width={width} height={height} />,
 }));
 
