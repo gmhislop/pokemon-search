@@ -41,7 +41,6 @@ const PokemonDetailPage = () => {
       try {
         const data = await getPokemons();
         const images = getPokemonSpritesByEvolutionChain(data.pokemon_v2_pokemonspecies, parseInt(id as string))
-        console.log(images)
         setRelationImages(images);
       } catch (error) {
         console.error('Error fetching pokemons:', error);
