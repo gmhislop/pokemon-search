@@ -20,6 +20,7 @@ const PokemonDetailPage = () => {
     { variables: { id: parseInt(id as string), name: name }, skip: !id && !name }
   );
 
+  // Skip the query if there is no id
   const { data: pokemonSpeciesData, loading: loadingPokemons, error: errorPokemons } = useQuery(GET_POKEMONS, {
     skip: !id,
   });
@@ -33,6 +34,7 @@ const PokemonDetailPage = () => {
     return notFound();
   }
 
+  // Get the relation images based on the evolution chain of the pokemon
   let relationImages = null;
   if (pokemonSpeciesData && pokemonSpeciesData.pokemon_v2_pokemonspecies) {
     relationImages = getPokemonSpritesByEvolutionChain(
